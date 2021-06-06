@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_github_repository/views/SearchResults.dart';
 
 class Search extends StatefulWidget {
   @override
@@ -7,8 +8,8 @@ class Search extends StatefulWidget {
 
 class _SearchState extends State<Search> {
 
-  void _handleSearchButtonClick() {
-
+  void _handleSearchButtonClick(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => SearchResults()));
   }
 
   @override
@@ -31,7 +32,7 @@ class _SearchState extends State<Search> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _handleSearchButtonClick,
+        onPressed: () => _handleSearchButtonClick(context),
         tooltip: 'Pesquisar',
         child: Icon(Icons.search)
       ),
