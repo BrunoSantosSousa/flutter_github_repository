@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
-class SearchResults extends StatefulWidget {
 
-  final String title = 'Resultados da busca por: ID';
+class SearchResultsArguments {
+  final String search;
+
+  SearchResultsArguments(this.search);
+}
+
+class SearchResults extends StatefulWidget {
+  static const routeName = "/search-results";
 
   @override
   _SearchResultsState createState() => _SearchResultsState();
@@ -11,9 +17,12 @@ class SearchResults extends StatefulWidget {
 class _SearchResultsState extends State<SearchResults> {
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context).settings.arguments as SearchResultsArguments;
+    final String title = 'Resultados da busca por: ${args.search}';
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title)
+        title: Text(title)
       ),
       body: Center(
         child: Column(

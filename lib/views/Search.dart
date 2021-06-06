@@ -8,8 +8,16 @@ class Search extends StatefulWidget {
 
 class _SearchState extends State<Search> {
 
+  final myController = TextEditingController();
+
   void _handleSearchButtonClick(BuildContext context) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => SearchResults()));
+    Navigator.pushNamed(context, SearchResults.routeName, arguments: SearchResultsArguments(myController.text));
+  }
+
+  @override
+  void dispose() {
+    myController.dispose();
+    super.dispose();
   }
 
   @override
@@ -25,7 +33,8 @@ class _SearchState extends State<Search> {
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: 'Nome de um usuário do github'
-                      )
+                      ),
+                      controller: myController,
                   )
                 ]
             )
