@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_github_repository/views/ResultDetail.dart';
 import 'package:flutter_github_repository/views/Search.dart';
 import 'package:flutter_github_repository/views/SearchResults.dart';
 
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
       ),
       home: Search(),
       routes: {
-        SearchResults.routeName: (context) => SearchResults()
+        SearchResults.routeName: (context) => SearchResults(),
+        ResultDetail.routeName: (context) => ResultDetail()
       },
     );
   }
